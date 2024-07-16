@@ -1,0 +1,197 @@
+body {
+    background-color: #8a2be2; /* Fondo morado */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    box-sizing: border-box;
+    position: relative; /* Posición relativa para globos absolutos */
+}
+
+.felicitaciones {
+    font-size: 3em; /* Tamaño grande para "FELICIDADES" */
+    font-weight: bold; /* Negrita */
+    margin-bottom: 40px; /* Espacio abajo del texto */
+    text-transform: uppercase; /* Mayúsculas */
+    position: relative; /* Posición relativa para el efecto de luces */
+    animation: lights 2s linear infinite alternate;
+}
+
+.light-border {
+    border: 5px solid #fff;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(255, 255, 0, 0.8);
+    background: rgba(0, 0, 0, 0.2);
+    max-width: 800px;
+    width: 90%; /* Cambiado a un ancho relativo */
+    position: relative; /* Añadido para alinear las luces */
+    margin-bottom: 20px; /* Espacio inferior para separar del siguiente contenido */
+}
+
+.birthday-message {
+    font-size: 1.2em;
+    color: #fff;
+    text-align: justify; /* Justificar texto para mejor legibilidad en dispositivos */
+    margin: 0;
+    line-height: 1.6; /* Aumentar espaciado entre líneas */
+}
+
+/* Luces parpadeantes */
+.light-border::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border: 5px solid transparent; /* Borde transparente */
+    border-radius: 10px;
+    animation: lights 2s linear infinite alternate;
+}
+
+@keyframes lights {
+    0% {
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.8); /* Rojo */
+    }
+    25% {
+        box-shadow: 0 0 30px rgba(0, 255, 0, 0.8); /* Verde */
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(0, 0, 255, 0.8); /* Azul */
+    }
+    75% {
+        box-shadow: 0 0 30px rgba(255, 255, 0, 0.8); /* Amarillo */
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(255, 0, 255, 0.8); /* Magenta */
+    }
+}
+
+/* Globos animados */
+.balloons {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1; /* Para que los globos estén detrás del contenido */
+    animation: float 10s ease-in-out infinite;
+}
+
+.balloon {
+    width: 40px;
+    height: 60px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    animation: float-up 5s ease-in-out infinite;
+}
+
+.balloon:nth-child(2) {
+    left: 10%;
+    animation-delay: 1s;
+}
+
+.balloon:nth-child(3) {
+    left: 20%;
+    animation-delay: 2s;
+}
+
+.balloon:nth-child(4) {
+    left: 30%;
+    animation-delay: 3s;
+}
+
+.balloon:nth-child(5) {
+    left: 40%;
+    animation-delay: 4s;
+}
+
+.balloon:nth-child(6) {
+    left: 60%;
+    animation-delay: 5s;
+}
+
+.balloon:nth-child(7) {
+    left: 70%;
+    animation-delay: 6s;
+}
+
+.balloon:nth-child(8) {
+    left: 80%;
+    animation-delay: 7s;
+}
+
+.balloon:nth-child(9) {
+    left: 90%;
+    animation-delay: 8s;
+}
+
+@keyframes float {
+    0% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-20px);
+    }
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+@keyframes float-up {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .felicitaciones {
+        font-size: 2.5em; /* Reducir tamaño de "FELICIDADES" en dispositivos más pequeños */
+    }
+
+    .light-border {
+        width: 95%; /* Ajustar ancho del borde ligero en dispositivos más pequeños */
+    }
+}
+
+@media (max-width: 600px) {
+    .felicitaciones {
+        font-size: 2em; /* Reducir tamaño de "FELICIDADES" en dispositivos móviles */
+    }
+
+    .light-border {
+        width: 100%; /* Ancho completo en dispositivos móviles */
+    }
+
+    .birthday-message {
+        font-size: 1em; /* Tamaño de fuente más pequeño en dispositivos móviles */
+        text-align: center; /* Centrar texto en dispositivos móviles */
+        padding: 0 10px; /* Agregar relleno a los lados para mejor legibilidad */
+    }
+
+    .balloon {
+        width: 30px; /* Reducir tamaño de globos en dispositivos móviles */
+        height: 45px;
+    }
+}

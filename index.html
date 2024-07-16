@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Cumpleaños!</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .clickable {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="curved-text">
+            <svg viewBox="0 0 500 200" preserveAspectRatio="xMinYMin meet">
+                <path id="curve" d="M50,150 Q250,-50 450,150" fill="transparent" />
+                <text width="500">
+                    <textPath xlink:href="#curve" startOffset="50%" text-anchor="middle">
+                        ¡Feliz Cumpleaños!
+                    </textPath>
+                </text>
+                <!-- Imagen con funcionalidad de botón -->
+                <image xlink:href="SARAI.png" x="200" y="50" width="100" height="100" style="stroke: black; stroke-width: 2px;" class="clickable" onclick="redirectToPage()" />
+                <text x="250" y="180" text-anchor="middle" font-size="1.5vw" fill="#fff">
+                    Pequeña Sari
+                </text>
+            </svg>
+        </div>
+        
+    </div>
+    <div id="balloons"></div>
+    <script src="script.js"></script>
+</body>
+</html>
+
